@@ -4,7 +4,9 @@
   "description": "react/next 快速应用Demo",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "next",
+    "build": "next build",
+    "start": "next start"
   },
   "repository": {
     "type": "git",
@@ -17,16 +19,11 @@
   },
   "homepage": "https://github.com/xiqe/react-next-fast#readme",
   "dependencies": {
+    "@zeit/next-less": "^0.3.0",
+    "less": "^3.8.1",
     "next": "^6.1.1",
     "react": "^16.4.2",
-    "react-dom": "^16.4.2"
-  },
-  "devDependencies": {
-    "babel-core": "^6.26.3",
-    "babel-loader": "^7.1.5",
-    "babel-preset-es2015": "^6.24.1",
-    "babel-preset-react": "^6.24.1",
-    "babel-preset-stage-0": "^6.24.1",
-    "webpack": "^4.16.5"
+    "react-dom": "^16.4.2",
+    "webpack": "^3.12.0"
   }
 }
