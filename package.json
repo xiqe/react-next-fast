@@ -2,7 +2,7 @@
   "name": "react-next-fast",
   "version": "1.0.0",
   "description": "react/next 快速应用Demo",
-  "main": "index.js",
+  "main": "pages/index.js",
   "scripts": {
     "dev": "next",
     "build": "next build",

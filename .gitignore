@@ -2,6 +2,7 @@
 .classpath
 .settings
 .idea
+.next
 *.iml
 target
 .DS_Store
