@@ -399,8 +399,8 @@ export default class Index extends Component {
 打开首页，可以看到title已变为刚设置的'首页'。
 
 
-## 运行本Demo
-clone到本地，安装并运行。
+## 写在结尾
+至此，教程已经完结，通过该教程，可以帮助大家更加快速的上手Next.js，查看具体代码，可以将Demo clone到本地，安装并运行。
 ``` bash
 git clone git@github.com:xiqe/react-next-fast.git
 npm install
