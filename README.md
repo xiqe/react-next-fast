@@ -22,10 +22,9 @@ Next.js是提供基于React的SSR框架。解决SPA的一些缺点。
 
 ``` bash
 git clone git@github.com:xiqe/react-next-fast.git
-
 npm install
-
-npm run dev
+npm run dev     #访问本地localhost:3000
+npm run build   #创建静态页面
 ```
 
 
