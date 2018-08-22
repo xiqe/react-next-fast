@@ -186,7 +186,7 @@ export default () => (
 就可以看到，页面的样式会根据index.less的修改进行改变，这样我们就可以去使用less了。
 
 ### 使用React组件
-我们将pages/index.js改造成react组件，index这个页面就有了react的生命周期。
+1. 我们将pages/index.js改造成react组件，index这个页面就有了react的生命周期。
 ``` js
 import React, { Component } from 'react'
 
@@ -231,6 +231,43 @@ export default class Index extends Component {
 }
 ```
 打开 localhost:3000 的控制台可以看到在Next框架下pages/index.js文件已经变成了react的组件了。
+
+2. 在使用react的时候，我们会将页面模块化进而拆分成最小单元的component，接下去我们会在根目录创建一个和pages并行的文件夹components来放置一些components
+``` bash
+mkdir components
+cd components
+touch Hello.js
+```
+编辑Hello.js的内容
+``` js
+import React, { Component } from 'react'
+
+export default class Hello extends Component {
+
+    render (){
+        return (
+            <div>
+                Nice to meet you!
+            </div>
+        )
+    }
+}
+```
+然后我们随便找一个页面进行引用
+
+pages/about/contact.js
+``` js
+import Head from 'next/head'
+import Hello from '../../components/Hello'
+
+export default () => (
+    <div>
+        <h1>This is the contact page</h1>
+        <Hello />
+    </div>
+)
+```
+然后我们打开 localhost:3000/about/contact 可以看到页面用已经引用了 Hello 组件，并显示'Nice to meet you!'
 
 
 
