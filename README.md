@@ -1,5 +1,7 @@
-# Next.js快速使用的小Demo
-Next.js是提供基于React的SSR框架。解决SPA的一些缺点。
+# Next.js 从零搭快读建Next框架教程
+
+## 写在前面
+Next.js是提供基于React的SSR框架。解决SPA的一些缺点。下文会对SPA应用进行一些简单的介绍，并且会通过拆分本Demo的实现，让大家学会如何从零搭建Next框架。
 
 ## SPA的本质以及优缺点
 现今前端开发技术，spa（single page application）单页应用的普及度越来越高，react以及vue这类的前端UI框架为spa提供的很好的实现。单页应用的本质其实就是浏览器首先加载必须的HTML、CSS和Javascript，所有的操作都在这张页面上完成，都由JavaScript来控制。
@@ -17,8 +19,36 @@ Next.js是提供基于React的SSR框架。解决SPA的一些缺点。
 - 用户操作需要写逻辑，前进、后退等；
 - 页面复杂度提高很多，复杂逻辑难度成倍；
 
+## 从零搭快读建Next框架教程
 
-## 使用Demo
+#### 技术栈为当前最新
+- @zeit/next-less 0.3.0
+- next 6.1.1
+- react 16.4.2
+- react-dom 16.4.2  
+
+#### 目录结构
+``` js
+- vue-webpack-cli/         # 项目名称
+  - src/                   # 开发目录
+    + resources/           # 资源目录
+        + less/                # css资源
+        + img/                 # 图片资源
+        + js/                  # js&jsx资源
+    + components/           # 公共组建目录
+    + api/                  # api接口目录
+    + view/                 # vue页面template目录
+    + vuex/                 # vuex目录
+  + dist/                # 编译输出目录
+  + page/                  # 本地静态页面入口
+  app.js                   # 本地server入口
+  webpack.config.js        # webpack配置文件
+  package.json             # 项目配置
+  README.md                # 项目说明
+```
+
+
+## 运行本Demo
 clone到本地，安装并运行。
 ``` bash
 git clone git@github.com:xiqe/react-next-fast.git
