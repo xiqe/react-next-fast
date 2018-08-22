@@ -25,28 +25,46 @@ Next.js是提供基于React的SSR框架。解决SPA的一些缺点。下文会�
 - @zeit/next-less 0.3.0
 - next 6.1.1
 - react 16.4.2
-- react-dom 16.4.2  
+- react-dom 16.4.2
 
 #### 目录结构
 ``` js
-- vue-webpack-cli/         # 项目名称
-  - src/                   # 开发目录
-    + resources/           # 资源目录
-        + less/                # css资源
-        + img/                 # 图片资源
-        + js/                  # js&jsx资源
-    + components/           # 公共组建目录
-    + api/                  # api接口目录
-    + view/                 # vue页面template目录
-    + vuex/                 # vuex目录
-  + dist/                # 编译输出目录
-  + page/                  # 本地静态页面入口
-  app.js                   # 本地server入口
-  webpack.config.js        # webpack配置文件
-  package.json             # 项目配置
-  README.md                # 项目说明
+- react-next-fast/         # 项目名称
+  - components/             # 组件目录
+    Hello.js
+    Layout.js
+  - pages/                  # 本地静态页面入口
+    - about/                # 模块子目录，路由会相应匹配
+        index.js            # /about
+        contact.js          # /about/contact
+    index.js                # 首页
+    test.js                 # /test
+  - static/                 # 静态资源存放目录
+    - css/                  # 样式表目录
+        index.less
+    + img/                  # 图片目录
+  next.config.js            # next配置文件
+  package.json              # 项目配置
+  README.md                 # 项目说明
 ```
 
+#### init项目
+1. Install Next以及React相关
+``` bash
+npm install --save next react react-dom
+```
+并且在package.json添加script如下：
+``` bash
+{
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start"
+  }
+}
+```
+
+2.
 
 ## 运行本Demo
 clone到本地，安装并运行。
