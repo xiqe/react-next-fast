@@ -73,7 +73,7 @@ mkdir pages
 cd pages
 touch index.js
 ```
-编写'/pages/index.js'
+编写/pages/index.js
 ``` bash
 export default () => (
     <div className="example">
@@ -84,13 +84,48 @@ export default () => (
 运行npm run dev，在浏览器中打开 localhost:3000，就可以看到 Hello Next.js
 
 #### Next自带路由的使用
-在pages文件夹内再创建一个test.js文件并进行编写
+1. 在pages文件夹内再创建一个test.js文件并进行编写
 ``` bash
 export default () => (
     <h1>this is test page</h1>
 )
 ```
 在浏览器中打开 localhost:3000/test，就可以看到 this is test page
+
+2. 再次打开index.js并且修改为如下内容：
+``` bash
+import Link from 'next/link'
+
+export default () => (
+    <div className="example">
+        <h1>Hello Next.js</h1>
+        <p>Menu</p>
+        <ul className="menu">
+            <li><Link href="/test"><a>Test</a></Link></li>
+        </ul>
+    </div>
+)
+```
+打开 localhost:3000，就可以看到页面中多了一个Test的a链接，点击页面就会跳转到 localhost:3000/test
+
+3. 接着我们在pages/下建立about文件夹，并且创建index.js和contact.js两个文件
+index.js
+``` bash
+export default () => (
+    <div>
+        <h1>This is the about page</h1>
+    </div>
+)
+```
+contact.js
+``` bash
+export default () => (
+    <div>
+        <h1>This is the contact page</h1>
+    </div>
+)
+```
+分别打开 localhost:3000/about 和 localhost:3000/about/contact 我们会相应的看到两个页面，因此我们会发现，pages文件的目录结构即是页面url的路径，pages本身就是根目录。
 
 
 ## 运行本Demo
