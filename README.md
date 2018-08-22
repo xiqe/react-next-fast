@@ -109,6 +109,7 @@ export default () => (
 打开 localhost:3000，就可以看到页面中多了一个Test的a链接，点击页面就会跳转到 localhost:3000/test
 
 3. 接着我们在pages/下建立about文件夹，并且创建index.js和contact.js两个文件
+
 index.js
 ``` bash
 export default () => (
