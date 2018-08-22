@@ -232,7 +232,7 @@ export default class Index extends Component {
 ```
 打开 localhost:3000 的控制台可以看到在Next框架下pages/index.js文件已经变成了react的组件了。
 
-在使用react的时候，我们会将页面模块化进而拆分成最小单元的component，接下去我们会在根目录创建一个和pages并行的文件夹components来放置一些components
+在使用react的时候，我们会将页面模块化进而拆分成最小单元的component，接下去我们会在根目录创建一个和pages并行的文件夹components来放置一些组件。
 ``` bash
 mkdir components
 cd components
