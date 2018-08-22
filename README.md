@@ -137,7 +137,11 @@ export default () => (
 ```
 
 2. 如果要想使用'.css','.less','.sass'或者'.styl'文件，Next官网也同样给到了相应的方案：
-- [https://github.com/zeit/next-plugins/tree/master/packages/next-css](@zeit/next-css)
+- [@zeit/next-css](https://github.com/zeit/next-plugins/tree/master/packages/next-css)
+- [@zeit/next-sass](https://github.com/zeit/next-plugins/tree/master/packages/next-sass)
+- [@zeit/next-less](https://github.com/zeit/next-plugins/tree/master/packages/next-less)
+- [@zeit/next-stylus](https://github.com/zeit/next-plugins/tree/master/packages/next-stylus)
+本Demo使用的是less的方案，其他方案雷同。
 
 ## 运行本Demo
 clone到本地，安装并运行。
