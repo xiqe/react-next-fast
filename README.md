@@ -52,7 +52,7 @@ Next.js是提供基于React的SSR框架。解决SPA的一些缺点。下文会�
 ### init项目
 1. Install Next以及React相关
 ``` bash
-npm install --save next
+npm install --save next react react-dom
 ```
 并且在package.json添加script如下：
 ``` bash
@@ -188,6 +188,7 @@ export default () => (
 ### 使用React
 
 
+
 ## 运行本Demo
 clone到本地，安装并运行。
 ``` bash
@@ -196,7 +197,6 @@ npm install
 npm run dev     #访问本地localhost:3000
 npm run build   #创建静态页面
 ```
-
 
 
 
