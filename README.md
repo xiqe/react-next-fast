@@ -185,7 +185,52 @@ export default () => (
 ```
 就可以看到，页面的样式会根据index.less的修改进行改变，这样我们就可以去使用less了。
 
-### 使用React
+### 使用React组件
+我们将pages/index.js改造成react组件，index这个页面就有了react的生命周期。
+``` js
+import React, { Component } from 'react'
+
+import Link from 'next/link'
+import '../static/index.less'
+
+export default class Index extends Component {
+    constructor(){
+        super();
+        console.log('---------constructor--------');
+    }
+
+    componentWillMount(){
+        console.log('---------componentWillMount--------')
+    }
+
+    componentDidMount(){
+        console.log('---------componentDidMount--------')
+    }
+
+    componentWillUpdate(){
+        console.log('---------componentWillUpdate--------')
+    }
+
+    componentDidUpdate(){
+        console.log('---------componentDidUpdate--------')
+    }
+
+    render (){
+        return (
+            <div className="example">
+                <h1>Hello Next.js</h1>
+                <p>Menu</p>
+                <ul className="menu">
+                    <li><Link href="/about"><a>About</a></Link></li>
+                    <li><Link href="/about/contact"><a>Contact</a></Link></li>
+                    <li><Link href="/test"><a>Test</a></Link></li>
+                </ul>
+            </div>
+        )
+    }
+}
+```
+打开 localhost:3000 的控制台可以看到在Next框架下pages/index.js文件已经变成了react的组件了。
 
 
 

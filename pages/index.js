@@ -4,6 +4,26 @@ import Link from 'next/link'
 import '../static/index.less'
 
 export default class Index extends Component {
+    constructor(){
+        super();
+        console.log('---------constructor--------');
+    }
+
+    componentWillMount(){
+        console.log('---------componentWillMount--------')
+    }
+
+    componentDidMount(){
+        console.log('---------componentDidMount--------')
+    }
+
+    componentWillUpdate(){
+        console.log('---------componentWillUpdate--------')
+    }
+
+    componentDidUpdate(){
+        console.log('---------componentDidUpdate--------')
+    }
 
     render (){
         return (
