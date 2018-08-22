@@ -185,6 +185,8 @@ export default () => (
 ```
 就可以看到，页面的样式会根据index.less的修改进行改变，这样我们就可以去使用less了。
 
+### 使用React
+
 
 ## 运行本Demo
 clone到本地，安装并运行。
