@@ -1,4 +1,4 @@
-# Next.js 从零搭快读建Next框架教程
+# Next.js 从零快速搭建Next框架教程
 
 ## 写在前面
 Next.js是提供基于React的SSR框架。解决SPA的一些缺点。下文会对SPA应用进行一些简单的介绍，并且会通过拆分本Demo的实现，让大家学会如何从零搭建Next框架。
@@ -21,10 +21,9 @@ Next.js是提供基于React的SSR框架。解决SPA的一些缺点。下文会�
 
 因此，当我们既要使用SPA的开发模式，又要去兼容此模式缺点的时候，Next就是一个优秀的方案。
 
-## 从零搭快读建Next框架教程
+## 从零快速搭建Next框架教程
 
 #### 技术栈为当前最新
-- @zeit/next-less 0.3.0
 - next 6.1.1
 - react 16.4.2
 - react-dom 16.4.2
@@ -66,7 +65,22 @@ npm install --save next react react-dom
 }
 ```
 
-2.
+2. 创建pages目录和index.js文件
+``` bash
+mkdir pages
+cd pages
+touch index.js
+```
+编写'/pages/index.js'
+``` bash
+export default () => (
+    <div className="example">
+        <h1>Hello Next.js</h1>
+    </div>
+)
+```
+运行npm run dev，在浏览器中打开 localhost:3000，就可以看到 Hello Next.js
+
 
 ## 运行本Demo
 clone到本地，安装并运行。
