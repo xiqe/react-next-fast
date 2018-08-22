@@ -128,6 +128,16 @@ export default () => (
 ```
 分别打开 localhost:3000/about 和 localhost:3000/about/contact 我们会相应的看到两个页面，因此我们会发现，pages文件的目录结构即是页面url的路径，pages本身就是根目录。
 
+### Next如何添加样式
+1. 在每一个模块中添加样式：
+``` bash
+<style jsx>{`
+    .red {color:#f00;}
+`}</style>
+```
+
+2. 如果要想使用'.css','.less','.sass'或者'.styl'文件，Next官网也同样给到了相应的方案：
+- [https://github.com/zeit/next-plugins/tree/master/packages/next-css](@zeit/next-css)
 
 ## 运行本Demo
 clone到本地，安装并运行。
