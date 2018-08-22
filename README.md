@@ -52,7 +52,7 @@ Next.js是提供基于React的SSR框架。解决SPA的一些缺点。下文会�
 ### init项目
 1. Install Next以及React相关
 ``` bash
-npm install --save next react react-dom
+npm install --save next
 ```
 并且在package.json添加script如下：
 ``` bash
@@ -74,7 +74,7 @@ cd pages
 touch index.js
 ```
 编写/pages/index.js
-``` bash
+``` js
 export default () => (
     <div className="example">
         <h1>Hello Next.js</h1>
@@ -85,7 +85,7 @@ export default () => (
 
 ### Next自带路由的使用
 1. 在pages文件夹内再创建一个test.js文件并进行编写
-``` bash
+``` js
 export default () => (
     <h1>this is test page</h1>
 )
@@ -93,7 +93,7 @@ export default () => (
 在浏览器中打开 localhost:3000/test，就可以看到 this is test page
 
 2. 再次打开index.js并且修改为如下内容：
-``` bash
+``` js
 import Link from 'next/link'
 
 export default () => (
@@ -111,7 +111,7 @@ export default () => (
 3. 接着我们在pages/下建立about文件夹，并且创建index.js和contact.js两个文件
 
 index.js
-``` bash
+``` js
 export default () => (
     <div>
         <h1>This is the about page</h1>
@@ -119,7 +119,7 @@ export default () => (
 )
 ```
 contact.js
-``` bash
+``` js
 export default () => (
     <div>
         <h1>This is the contact page</h1>
@@ -143,6 +143,48 @@ export default () => (
 - [@zeit/next-stylus](https://github.com/zeit/next-plugins/tree/master/packages/next-stylus)
 
 本Demo使用的是less的方案，其他方案雷同。
+
+在pages中添加_document.js文件并编辑：
+``` js
+import Document, { Head, Main, NextScript } from 'next/document'
+
+export default class MyDocument extends Document {
+    render() {
+        return (
+            <html>
+                <Head>
+                    <meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no minimal-ui" />
+                    <link rel="stylesheet" href="/_next/static/style.css" />
+                </Head>
+                <body>
+                    <Main />
+                    <NextScript />
+                </body>
+            </html>
+        )
+    }
+}
+```
+
+同时创建static目录，并且添加index.less文件进行编辑，最后在pages/index.js中引用
+``` js
+import Link from 'next/link'
+import '../static/index.less'
+
+export default () => (
+    <div className="example">
+        <h1>Hello Next.js</h1>
+        <p>Menu</p>
+        <ul className="menu">
+            <li><Link href="/about"><a>About</a></Link></li>
+            <li><Link href="/about/contact"><a>Contact</a></Link></li>
+            <li><Link href="/test"><a>Test</a></Link></li>
+        </ul>
+    </div>
+)
+```
+就可以看到，页面的样式会根据index.less的修改进行改变，这样我们就可以去使用less了。
+
 
 ## 运行本Demo
 clone到本地，安装并运行。
