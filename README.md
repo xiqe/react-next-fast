@@ -50,7 +50,7 @@ Next.js是提供基于React的SSR框架。解决SPA的一些缺点。下文会�
 ```
 
 ### init项目
-1. Install Next以及React相关
+Install Next以及React相关
 ``` bash
 npm install --save next react react-dom
 ```
@@ -65,7 +65,7 @@ npm install --save next react react-dom
 }
 ```
 
-2. 创建pages目录和index.js文件
+创建pages目录和index.js文件
 根据Next的规范约定，所有的页面都需要放在pages文件夹，因此我们首先先创建一个pages文件夹并在该文件夹下创建第一个页面index。
 
 ``` bash
@@ -84,7 +84,7 @@ export default () => (
 运行npm run dev，在浏览器中打开 localhost:3000，就可以看到 Hello Next.js
 
 ### Next自带路由的使用
-1. 在pages文件夹内再创建一个test.js文件并进行编写
+在pages文件夹内再创建一个test.js文件并进行编写
 ``` js
 export default () => (
     <h1>this is test page</h1>
@@ -92,7 +92,7 @@ export default () => (
 ```
 在浏览器中打开 localhost:3000/test，就可以看到 this is test page
 
-2. 再次打开index.js并且修改为如下内容：
+再次打开index.js并且修改为如下内容：
 ``` js
 import Link from 'next/link'
 
@@ -108,7 +108,7 @@ export default () => (
 ```
 打开 localhost:3000，就可以看到页面中多了一个Test的a链接，点击页面就会跳转到 localhost:3000/test
 
-3. 接着我们在pages/下建立about文件夹，并且创建index.js和contact.js两个文件
+接着我们在pages/下建立about文件夹，并且创建index.js和contact.js两个文件
 
 index.js
 ``` js
@@ -129,14 +129,14 @@ export default () => (
 分别打开 localhost:3000/about 和 localhost:3000/about/contact 我们会相应的看到两个页面，因此我们会发现，pages文件的目录结构即是页面url的路径，pages本身就是根目录。
 
 ### Next如何添加样式
-1. 在每一个模块中添加样式：
+首先可以在每一个模块中添加样式：
 ``` bash
 <style jsx>{`
     .red {color:#f00;}
 `}</style>
 ```
 
-2. 如果要想使用'.css','.less','.sass'或者'.styl'文件，Next官网也同样给到了相应的方案：
+其次，如果要想使用'.css','.less','.sass'或者'.styl'文件，Next官网也同样给到了相应的方案：
 - [@zeit/next-css](https://github.com/zeit/next-plugins/tree/master/packages/next-css)
 - [@zeit/next-sass](https://github.com/zeit/next-plugins/tree/master/packages/next-sass)
 - [@zeit/next-less](https://github.com/zeit/next-plugins/tree/master/packages/next-less)
@@ -186,7 +186,7 @@ export default () => (
 就可以看到，页面的样式会根据index.less的修改进行改变，这样我们就可以去使用less了。
 
 ### 使用React组件
-1. 我们将pages/index.js改造成react组件，index这个页面就有了react的生命周期。
+我们将pages/index.js改造成react组件，index这个页面就有了react的生命周期。
 ``` js
 import React, { Component } from 'react'
 
@@ -232,7 +232,7 @@ export default class Index extends Component {
 ```
 打开 localhost:3000 的控制台可以看到在Next框架下pages/index.js文件已经变成了react的组件了。
 
-2. 在使用react的时候，我们会将页面模块化进而拆分成最小单元的component，接下去我们会在根目录创建一个和pages并行的文件夹components来放置一些components
+在使用react的时候，我们会将页面模块化进而拆分成最小单元的component，接下去我们会在根目录创建一个和pages并行的文件夹components来放置一些components
 ``` bash
 mkdir components
 cd components
@@ -267,8 +267,136 @@ export default () => (
     </div>
 )
 ```
-然后我们打开 localhost:3000/about/contact 可以看到页面用已经引用了 Hello 组件，并显示'Nice to meet you!'
+我们打开 localhost:3000/about/contact 可以看到页面用已经引用了 Hello 组件，并显示'Nice to meet you!'
 
+### Layout模版设置
+在常规的业务常见中，我们经常会碰到同一个结构在多个页面被使用，因此在Next中我们可以设计一个Layout模版进行统一的调用。
+``` bash
+cd components
+touch Layout.js
+```
+编辑Layout.js
+``` js
+import Link from 'next/link'
+import Head from 'next/head'
+
+export default ({ children, title = 'This is the default title' }) => (
+    <div>
+        <Head>
+            <title>{ title }</title>
+            <meta charSet='utf-8' />
+            <meta name='viewport' content='initial-scale=1.0, width=device-width' />
+        </Head>
+        <header>
+            <nav>
+                <Link href='/'><a>Home</a></Link>
+                <Link href='/about'><a>About</a></Link>
+                <Link href='/about/contact'><a>Contact</a></Link>
+                <Link href='/test'><a>Test</a></Link>
+            </nav>
+        </header>
+
+        { children }
+
+        <footer>
+            {'I`m footer'}
+        </footer>
+
+        <style jsx>{`
+            nav {
+                width:100%;
+                border-bottom:1px solid #ccc;
+                line-height:40px;
+            }
+            nav a {
+                margin:0 10px;
+                color:#999;
+            }
+            nav a:hover {
+                color:#000;
+            }
+            footer {
+                position:fixed;
+                bottom:0;
+                width:100%;
+                border-top:1px solid #ccc;
+                line-height:40px;
+            }
+        `}</style>
+    </div>
+)
+```
+在test.js,about/index.js,about/contact.js中进行调用
+``` js
+import React, { Component } from 'react'
+import Layout from './../components/Layout'
+
+export default class Test extends Component {
+    render (){
+        return (
+            <Layout title="test page">
+                <h1>this is test page</h1>
+            </Layout>
+        )
+    }
+}
+```
+可以看到，localhost:3000/test，localhost:3000/about，localhost:3000/about/contact这个页面都使用了Layout的模版。
+
+### Next编辑Head相关设置
+Next可以设置每一个页面独有的Head设置，只需要在相应的页面中单独配置。
+
+pages/index.js
+``` js
+import React, { Component } from 'react'
+
+import Link from 'next/link'
+import Head from 'next/head'    //引入头部配置
+import '../static/index.less'
+
+export default class Index extends Component {
+    constructor(){
+        super();
+        console.log('---------constructor--------');
+    }
+
+    componentWillMount(){
+        console.log('---------componentWillMount--------')
+    }
+
+    componentDidMount(){
+        console.log('---------componentDidMount--------')
+    }
+
+    componentWillUpdate(){
+        console.log('---------componentWillUpdate--------')
+    }
+
+    componentDidUpdate(){
+        console.log('---------componentDidUpdate--------')
+    }
+
+    render (){
+        return (
+            <div className="example">
+            
+                <Head>
+                    <title>首页</title>       //设置首页title
+                </Head>
+                
+                <h1>Hello Next.js</h1>
+                <p>Menu</p>
+                <ul className="menu">
+                    <li><Link href="/about"><a>About</a></Link></li>
+                    <li><Link href="/about/contact"><a>Contact</a></Link></li>
+                    <li><Link href="/test"><a>Test</a></Link></li>
+                </ul>
+            </div>
+        )
+    }
+}
+```
+打开首页，可以看到title已变为刚设置的'首页'。
 
 
 ## 运行本Demo

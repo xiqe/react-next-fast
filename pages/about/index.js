@@ -1,12 +1,8 @@
-import Head from 'next/head'
 import Layout from '../../components/Layout'
 
 export default () => (
     <div>
-        <Head>
-            <title>about us</title>
-        </Head>
-        <Layout title="test page">
+        <Layout title="about page">
             <h1>This is the about page</h1>
             <h2>init number:<span className="red">1</span></h2>
         </Layout>

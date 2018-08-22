@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 
 import Link from 'next/link'
+import Head from 'next/head'
 import '../static/index.less'
 
 export default class Index extends Component {
@@ -28,6 +29,9 @@ export default class Index extends Component {
     render (){
         return (
             <div className="example">
+                <Head>
+                    <title>首页</title>
+                </Head>
                 <h1>Hello Next.js</h1>
                 <p>Menu</p>
                 <ul className="menu">
