@@ -18,6 +18,16 @@ Next.js是提供基于React的SSR框架。解决SPA的一些缺点。
 - 页面复杂度提高很多，复杂逻辑难度成倍；
 
 
+## 使用Demo
+
+``` bash
+git clone git@github.com:xiqe/react-next-fast.git
+
+npm install
+
+npm run dev
+```
+
 
 
 

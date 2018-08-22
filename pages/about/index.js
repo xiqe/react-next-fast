@@ -1,6 +1,5 @@
 import Head from 'next/head'
-import Layout from './../components/Layout'
-import Hello from '../components/Hello'
+import Layout from '../../components/Layout'
 
 export default () => (
     <div>
@@ -8,8 +7,8 @@ export default () => (
             <title>about us</title>
         </Head>
         <Layout title="test page">
-            <h1 className="red">This is the about page</h1>
-            <Hello />
+            <h1>This is the about page</h1>
+            <h2>init number:<span className="red">1</span></h2>
         </Layout>
         <style jsx>{`
             .red {color:#f00;}

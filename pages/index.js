@@ -9,8 +9,12 @@ export default class Index extends Component {
         return (
             <div className="example">
                 <h1>Hello Next.js</h1>
-                <p><Link href="/about"><a>to about</a></Link></p>
-                <p><Link href="/test"><a>to test</a></Link></p>
+                <p>Menu</p>
+                <ul className="menu">
+                    <li><Link href="/about"><a>About</a></Link></li>
+                    <li><Link href="/about/contact"><a>Contact</a></Link></li>
+                    <li><Link href="/test"><a>Test</a></Link></li>
+                </ul>
             </div>
         )
     }

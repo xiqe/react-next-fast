@@ -10,8 +10,9 @@ export default ({ children, title = 'This is the default title' }) => (
         </Head>
         <header>
             <nav>
-                <Link href='/'><a>Home</a></Link> |
-                <Link href='/about'><a>About</a></Link> |
+                <Link href='/'><a>Home</a></Link>
+                <Link href='/about'><a>About</a></Link>
+                <Link href='/about/contact'><a>Contact</a></Link>
                 <Link href='/test'><a>Test</a></Link>
             </nav>
         </header>
@@ -21,5 +22,27 @@ export default ({ children, title = 'This is the default title' }) => (
         <footer>
             {'I`m footer'}
         </footer>
+
+        <style jsx>{`
+            nav {
+                width:100%;
+                border-bottom:1px solid #ccc;
+                line-height:40px;
+            }
+            nav a {
+                margin:0 10px;
+                color:#999;
+            }
+            nav a:hover {
+                color:#000;
+            }
+            footer {
+                position:fixed;
+                bottom:0;
+                width:100%;
+                border-top:1px solid #ccc;
+                line-height:40px;
+            }
+        `}</style>
     </div>
 )
