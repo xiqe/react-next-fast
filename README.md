@@ -19,7 +19,7 @@ Next.js是提供基于React的SSR框架。解决SPA的一些缺点。
 
 
 ## 使用Demo
-
+clone到本地，安装并运行。
 ``` bash
 git clone git@github.com:xiqe/react-next-fast.git
 npm install
