@@ -29,7 +29,7 @@ Next.js是提供基于React的SSR框架。解决SPA的一些缺点。下文会�
 - react-dom 16.4.2
 
 ### 目录结构
-``` js
+``` html
 - react-next-fast/         # 项目名称
   - components/             # 组件目录
     Hello.js
@@ -74,7 +74,7 @@ cd pages
 touch index.js
 ```
 编写/pages/index.js
-``` js
+``` html
 export default () => (
     <div className="example">
         <h1>Hello Next.js</h1>
@@ -85,7 +85,7 @@ export default () => (
 
 ### Next自带路由的使用
 在pages文件夹内再创建一个test.js文件并进行编写
-``` js
+``` html
 export default () => (
     <h1>this is test page</h1>
 )
@@ -93,7 +93,7 @@ export default () => (
 在浏览器中打开 localhost:3000/test，就可以看到 this is test page
 
 再次打开index.js并且修改为如下内容：
-``` js
+``` html
 import Link from 'next/link'
 
 export default () => (
@@ -111,7 +111,7 @@ export default () => (
 接着我们在pages/下建立about文件夹，并且创建index.js和contact.js两个文件
 
 index.js
-``` js
+``` html
 export default () => (
     <div>
         <h1>This is the about page</h1>
@@ -119,7 +119,7 @@ export default () => (
 )
 ```
 contact.js
-``` js
+``` html
 export default () => (
     <div>
         <h1>This is the contact page</h1>
@@ -145,7 +145,7 @@ export default () => (
 本Demo使用的是less的方案，其他方案雷同。
 
 在pages中添加_document.js文件并编辑：
-``` js
+``` html
 import Document, { Head, Main, NextScript } from 'next/document'
 
 export default class MyDocument extends Document {
@@ -167,7 +167,7 @@ export default class MyDocument extends Document {
 ```
 
 同时创建static目录，并且添加index.less文件进行编辑，最后在pages/index.js中引用
-``` js
+``` html
 import Link from 'next/link'
 import '../static/index.less'
 
@@ -187,7 +187,7 @@ export default () => (
 
 ### 使用React组件
 我们将pages/index.js改造成react组件，index这个页面就有了react的生命周期。
-``` js
+``` html
 import React, { Component } from 'react'
 
 import Link from 'next/link'
@@ -239,7 +239,7 @@ cd components
 touch Hello.js
 ```
 编辑Hello.js的内容
-``` js
+``` html
 import React, { Component } from 'react'
 
 export default class Hello extends Component {
@@ -256,7 +256,7 @@ export default class Hello extends Component {
 然后我们随便找一个页面进行引用
 
 pages/about/contact.js
-``` js
+``` html
 import Head from 'next/head'
 import Hello from '../../components/Hello'
 
@@ -276,7 +276,7 @@ cd components
 touch Layout.js
 ```
 编辑Layout.js
-``` js
+``` html
 import Link from 'next/link'
 import Head from 'next/head'
 
@@ -327,7 +327,7 @@ export default ({ children, title = 'This is the default title' }) => (
 )
 ```
 在test.js,about/index.js,about/contact.js中进行调用
-``` js
+``` html
 import React, { Component } from 'react'
 import Layout from './../components/Layout'
 
@@ -347,7 +347,7 @@ export default class Test extends Component {
 Next可以设置每一个页面独有的Head设置，只需要在相应的页面中单独配置。
 
 pages/index.js
-``` js
+``` html
 import React, { Component } from 'react'
 
 import Link from 'next/link'
@@ -407,8 +407,3 @@ npm install
 npm run dev     #访问本地localhost:3000
 npm run build   #创建静态页面
 ```
-
-
-
-
-
